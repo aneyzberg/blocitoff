@@ -2,6 +2,8 @@
 
 ## Here we go!
 
+## See config/application.yml for configuring passwords for SENDGRID
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
