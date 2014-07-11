@@ -1,3 +1,15 @@
+require 'faker'
+
+20.times do
+  Todo.create(
+    description: Faker::Lorem.word
+    )
+end
+ todos = Todo.all
+
+puts "Seed Finished"
+puts "#{Todo.count} todos created"
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
