@@ -1,0 +1,25 @@
+<div class="col-md-8" align="center">
+<table class="table table-striped">
+<tr>
+  <td>Description</td>
+  <td>Days left</td>
+  <td>Complete</td>
+</tr>
+<% @todos.each do |todo| %>
+<tr>
+  <td><%= link_to todo.description, todo %>
+  </td>
+  <td><%= time_ago_in_words(todo.expiration) %></td>
+  <td>
+</tr>
+ <% end %>
+
+</table>
+
+
+</div>
+
+<div class="col-md-4">
+  <%= link_to "Add Todo", new_todo_path, class: 'btn btn-success' %>
+<div>
+

@@ -1,0 +1,7 @@
+<%= form_for [@todo] do |f| %>
+  <div class="form-group">
+  <%= f.label :Todo %>
+  <%= f.text_area :description, rows: 4, class: 'form-control', placeholder: "Enter new Todo item" %>
+  <div class="form-group">
+    <%= f.submit "Save", class: 'btn btn-success' %>
+  <% end %>
