@@ -1,5 +1,6 @@
-<%= form_for [todo, user] do |f| %>
-  <div class="form-group">
-  <%= f.label :description %>
-  <%= f.text_area :body, rows: 4, class: 'form-control', placeholder: "Enter new Todo item" %>
-  <% end %>
+<tr>
+  <td><%= todo.description %>
+  </td>
+  <td><%= time_ago_in_words(todo.expiration) %></td>
+  <td>
+</tr>
