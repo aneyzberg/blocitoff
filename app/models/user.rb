@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   has_many :todos
+  has_many :lists
 
   def role?(base_role)
     role == base_role.to_s

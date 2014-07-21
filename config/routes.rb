@@ -1,5 +1,9 @@
 Blocitoff::Application.routes.draw do
-  resources :todos
+
+
+  resources :lists do
+    resources :todos, only: [:create, :destroy]
+  end
 
   devise_for :users
   
