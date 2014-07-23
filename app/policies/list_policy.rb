@@ -1,8 +1,10 @@
 class ListPolicy < ApplicationPolicy
 
 
+
   def index?
-    user.present? && (record.user == user)
+    true
+    #user.present? && (record.user == user)
   end
 
   def create?
@@ -17,6 +19,10 @@ class ListPolicy < ApplicationPolicy
     @list = List.find(params[:id])
     @todos = @list.todos
     authorize @list
+  end
+
+  def destroy?
+    user.present? && (record.user == user)
   end
 
 end

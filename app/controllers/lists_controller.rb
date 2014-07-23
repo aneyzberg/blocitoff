@@ -1,6 +1,6 @@
 class ListsController < ApplicationController
   def index
-    @lists = List.all
+    @lists = current_user ? current_user.lists : List.all
     authorize @lists
   end
 
@@ -11,6 +11,7 @@ class ListsController < ApplicationController
 
 def create
   @list = List.new(params.require(:list).permit(:name))
+  @list.user = current_user
   authorize @list
   if @list.save
   redirect_to lists_path, notice: 'List was saved successfully'
@@ -19,6 +20,21 @@ else
   render :new
 end
 end 
+
+
+   def destroy
+    @list = List.find(params[:id])
+    name = @topic.name
+
+    authorize @list
+    if @list.destroy
+      flash[:notice] = "List was deleted successfully."
+      redirect_to @lists
+    else
+      flash[:error] = "There was an error deleting the topic."
+      render :show
+    end
+  end
 
   def show
     @list = List.find(params[:id])

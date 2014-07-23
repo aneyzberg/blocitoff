@@ -14,6 +14,17 @@ class TodosController < ApplicationController
   end
 
   def destroy
+    @todo = Todo.find(params[:id])
+    @todo.list = @list
+    authorize @todo
+
+    if @todo.destroy
+      flash[:notice] = "Todo was deleted sucessfully"      
+    else 
+      flash[:error] = "There was an error deleting the Todo."      
+    end
+    
+    redirect_to @list
   end
 
   private
