@@ -46,6 +46,8 @@ end
 
 gem 'faker'
 gem 'devise'
+gem 'pundit'
+gem 'whenever'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

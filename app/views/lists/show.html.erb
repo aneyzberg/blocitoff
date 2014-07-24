@@ -1,0 +1,28 @@
+<h1><%= @list.name %></h1>
+
+<div class="row">
+ <div class="col-md-8" align="center">
+    <table class="table table-striped">
+      <tr>
+        <td>Description</td>
+        <td>Days left</td>
+        <td>Complete</td>
+      </tr>
+        <%= render @todos %>
+      </table>
+    </div>
+  </div>
+ 
+ <div class="col-md-4">
+  <% if policy(Todo.new).create? %>
+  <%= form_for [@list, @todo] do |f| %>
+  <div class="form-group">
+  <%= f.label :Todo %>
+  <%= f.text_area :description, rows: 4, class: 'form-control', placeholder: "Enter new Todo item" %>
+  <div class="form-group">
+    <%= f.submit "Save", class: 'btn btn-success' %>
+  <% end %>
+  <% end %>
+</div>
+</div>
+
