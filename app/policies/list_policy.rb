@@ -3,8 +3,7 @@ class ListPolicy < ApplicationPolicy
 
 
   def index?
-    true
-    #user.present? && (record.user == user)
+    user.present? && (record.user == user)
   end
 
   def create?
